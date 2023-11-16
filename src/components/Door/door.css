@@ -1,0 +1,10 @@
+@keyframes door-animation {
+    from{
+        background-image: url(../../../public/assets/DOOR.png);
+        
+    }
+
+    to{
+        background-image: url(../../../public/assets/DOOR-OPEN.png);
+    }
+}
