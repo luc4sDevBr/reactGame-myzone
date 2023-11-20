@@ -1,8 +1,16 @@
 import React from 'react';
 import { INITIAL_POSITION_X, INITIAL_POSITION_Y, TILE_SIZE } from '../../settings/constants';
 import './minidemon.css'
+import { useMovimentHero } from '../Hooks/useHeroActions';
 
 function MiniDemon() {
+  const heroStateinitial = {
+    x: 3,
+    y: 10
+  }
+
+  let retorno = useMovimentHero(heroStateinitial);
+  
     return (
         <div 
           style={{
@@ -12,9 +20,11 @@ function MiniDemon() {
             backgroundRepeat:"no-repeat",
             animation: 'demon-animation 1s steps(4) infinite',
             position: 'absolute',
-            bottom:INITIAL_POSITION_Y*2,
-            left:INITIAL_POSITION_X,
-            backgroundPosition: `0PX -${TILE_SIZE-12}px`
+            bottom: TILE_SIZE * retorno.positionAtual.y,
+            left: TILE_SIZE * retorno.positionAtual.x,
+            backgroundPosition: `0PX -${TILE_SIZE-12}px`,
+            transform:`scaleX(${retorno.directionAtual == 'RIGHT'? 1 : -1})`,
+            
           }}
         />
     );

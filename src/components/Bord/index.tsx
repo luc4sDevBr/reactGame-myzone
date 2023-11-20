@@ -16,6 +16,7 @@ function Bord() {
             <Trap/>
             <Bau/>
             <Door/>
+
             <img src="./assets/tileset.gif" alt="" width={GAME_SIZE} height={GAME_SIZE} />
         </div>
     );
